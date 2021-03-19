@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.scss';
 import { Card, Button, Form } from 'react-bootstrap';
-import userImg from '../../img/unknown.svg';
+import userImg from '../../img/unknown-guy.svg';
 
 export default function LoginCard() {
   const [randomName] = useState('David');
