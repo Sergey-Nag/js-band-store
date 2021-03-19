@@ -1,27 +1,23 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import logo from './logo.svg';
-import './App.scss';
+import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code>  and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="full-height" fluid>
+      <Router basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/catalog" />
+          <Route path="/catalog/:id" />
+          <Route path="/cart" />
+          <Route path="/404" />
+        </Switch>
+      </Router>
+    </Container>
   );
 }
-
-export default App;

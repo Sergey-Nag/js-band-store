@@ -1,0 +1,9 @@
+@import "~bootstrap/scss/bootstrap", "./variables";
+
+body {
+  background-color: $bg-color;
+}
+
+.full-height {
+  height: 100vh;
+}
