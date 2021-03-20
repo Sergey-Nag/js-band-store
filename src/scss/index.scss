@@ -1,4 +1,4 @@
-@import "~bootstrap/scss/bootstrap", "./variables";
+@import '~bootstrap/scss/bootstrap', './variables';
 
 body {
   background-color: $bg-color;
@@ -8,3 +8,13 @@ body {
   height: 100vh;
 }
 
+.price {
+  font-size: 1.2em;
+  line-height: 2em;
+  font-weight: 600;
+  color: $success;
+
+  &::after {
+    content: '$';
+  }
+}
