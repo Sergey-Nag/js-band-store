@@ -40,7 +40,17 @@ body {
   }
 }
 
-.btn-img {
-  width: 18px;
-  margin: -4px 7px 0 0;
+.bttn {
+  @extend .btn, .btn-block;
+
+  &-img {
+    width: 18px;
+    margin: -4px 7px 0 0;
+  }
+  &.primary {
+    @extend .btn-outline-primary;
+  }
+  &.light {
+    @extend .btn-light;
+  }
 }

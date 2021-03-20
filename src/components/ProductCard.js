@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  Card, Col, Row, Button,
+  Card, Col, Row,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function ProductCard({ product }) {
   const {
@@ -19,9 +20,9 @@ export default function ProductCard({ product }) {
             <span className="price">{price}</span>
           </Col>
           <Col lg="7">
-            <Button href={`/catalog/${id}`} variant="outline-primary" className="w-100">
+            <Link to={`/catalog/${id}`} className="bttn primary">
               View
-            </Button>
+            </Link>
           </Col>
         </Row>
       </Card.Body>
