@@ -5,7 +5,7 @@ import {
 
 export default function ProductCard({ product }) {
   const {
-    title, price, cover, author,
+    id, title, price, cover, author,
   } = product;
 
   return (
@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
             <span className="price">{price}</span>
           </Col>
           <Col lg="7">
-            <Button href="/" className="w-100">
+            <Button href={`/catalog/${id}`} variant="outline-primary" className="w-100">
               View
             </Button>
           </Col>

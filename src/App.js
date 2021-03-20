@@ -10,8 +10,8 @@ export default function App() {
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path="/" />
-        <Route path="/login" component={login} />
-        <Route path="/catalog" component={catalog} />
+        <Route exact path="/login" component={login} />
+        <Route exact path="/catalog" component={catalog} />
         <Route path="/catalog/:id" component={product} />
         <Route path="/cart" />
         <Route path="/404" />

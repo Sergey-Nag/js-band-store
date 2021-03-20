@@ -18,3 +18,29 @@ body {
     content: '$';
   }
 }
+
+.tags {
+  padding-top: 1em;
+  padding-left: 2.2em;
+  position: relative;
+
+  .badge {
+    margin-right: 0.3em;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2em;
+    margin-left: -2.2em;
+    padding-bottom: 1.6em;
+    background: $tag-image no-repeat center / contain;
+    opacity: 0.4;
+  }
+}
+
+.btn-img {
+  width: 18px;
+  margin: -4px 7px 0 0;
+}

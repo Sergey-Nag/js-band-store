@@ -17,7 +17,7 @@ export default function LoginCard() {
             <Form.Control type="email" placeholder={`${randomName}...`} />
             <Form.Text className="text-muted" />
           </Form.Group>
-          <Button variant="primary" type="submin" className="w-100">
+          <Button variant="primary" type="submin" block>
             Login
           </Button>
         </Form>

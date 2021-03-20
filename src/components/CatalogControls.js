@@ -13,9 +13,9 @@ import filterIcon from '../img/filter.svg';
 export default function CatalogControls() {
   return (
     <Container>
-      <Row className="p-3">
+      <Row className="px-3">
         <Col md="6" lg="3">
-          <InputGroup className="mb-3">
+          <InputGroup className="mb-4">
             <InputGroup.Prepend>
               <InputGroup.Text>
                 <img src={searchIcon} style={{ width: 15 }} alt="icon" />
@@ -25,7 +25,7 @@ export default function CatalogControls() {
           </InputGroup>
         </Col>
         <Col md="6" lg="3">
-          <InputGroup className="mb-3">
+          <InputGroup className="mb-4">
             <InputGroup.Prepend>
               <InputGroup.Text>
                 <img src={filterIcon} style={{ width: 15 }} alt="icon" />
