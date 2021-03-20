@@ -1,10 +1,10 @@
 import React from 'react';
-import './LoginPage.scss';
+import './login.scss';
 import { Col, Row } from 'react-bootstrap';
 
 import LoginCard from '../../components/Login';
 
-function LoginPage() {
+export default function login() {
   return (
     <Row className="justify-content-center h-100">
       <Col sm={3}>
@@ -15,5 +15,3 @@ function LoginPage() {
     </Row>
   );
 }
-
-export default LoginPage;
