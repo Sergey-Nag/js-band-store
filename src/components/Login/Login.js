@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Login.scss';
-import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import userImg from '../../img/unknown-guy.svg';
 import signin from '../../store/actions/userActions';
 import LoginForm from './LoginForm';
@@ -27,34 +25,32 @@ export default function LoginCard() {
   };
 
   return (
-    <Card className="login-card">
-      <Card.Header>Login</Card.Header>
-      <Card.Img
-        variant="top"
+    <div className="card login-card">
+      <div className="card-header">Login</div>
+      <img
+        className="card-img-top px-5 pt-4"
         src={user.authUser?.avatar ?? userImg}
-        className="px-5 pt-4"
+        alt="avatar"
       />
       {user.authUser === null && (
-        <Card.Body>
+        <div className="card-body">
           <LoginForm
             handleSubmitForm={handleSubmitForm}
             username={[username, setUsername]}
             errorText={errorText}
           />
-        </Card.Body>
+        </div>
       )}
       {user.authUser !== null && (
-        <Card.Body>
+        <div className="card-body">
           <h3 className="text-center">
             Welcome,
             {' '}
             {user.authUser.username}
           </h3>
-          <hr />
-          <Link to="/catalog" className="bttn primary solid mb-2">Go to the catalog</Link>
-          <Button size="sm" variant="outline-secondary" block>Log out</Button>
-        </Card.Body>
+          <h6 className="text-muted">You will be redirected to the catalog page</h6>
+        </div>
       )}
-    </Card>
+    </div>
   );
 }
