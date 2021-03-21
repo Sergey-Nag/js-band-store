@@ -52,6 +52,10 @@ body {
   }
   &.primary {
     @extend .btn-outline-primary;
+
+    &.solid {
+      @extend .btn-primary;
+    }
   }
   &.light {
     @extend .btn-light;

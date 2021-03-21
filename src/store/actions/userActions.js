@@ -1,9 +1,13 @@
 import QueryApi from '../../service/QueryApi';
-import { AUTH_USER, AUTH_USER_ERROR } from '../types/userTypes';
+import { AUTH_USER, AUTH_USER_ERROR, AUTH_USER_LOADING } from '../types/userTypes';
 
 const query = QueryApi.getInstance();
 
 const signin = (username) => async (dispatch) => {
+  dispatch({
+    type: AUTH_USER_LOADING,
+  });
+
   const req = await query.signin(username);
   let type = AUTH_USER;
 
