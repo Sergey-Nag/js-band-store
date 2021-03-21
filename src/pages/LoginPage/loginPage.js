@@ -8,12 +8,14 @@ export default function LoginPage({ history }) {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (user.authUser !== null) {
+    document.title = 'Login';
+
+    if (user.token !== null) {
       setTimeout(() => {
         history.push('/catalog');
       }, 2000);
     }
-  }, [user.authUser, history]);
+  }, [user.token, history]);
 
   return (
     <div className="container full-height">

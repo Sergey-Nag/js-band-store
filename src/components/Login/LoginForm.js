@@ -21,8 +21,8 @@ export default function LoginForm({ handleSubmitForm, username, errorText }) {
         />
         <div className="invalid-feedback ">{errorText}</div>
       </div>
-      <button className="btn btn-primary btn-block" type="submit">
-        {user.isLoading && <Spinner />}
+      <button className="btn btn-primary btn-block" type="submit" disabled={user.isLoading}>
+        {user.isLoading && <Spinner as="span" />}
         Log in
       </button>
     </form>

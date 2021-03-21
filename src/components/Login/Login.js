@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Login.scss';
 import userImg from '../../img/unknown-guy.svg';
-import signin from '../../store/actions/userActions';
+import { signin } from '../../store/actions/userActions';
 import LoginForm from './LoginForm';
 
 export default function LoginCard() {
@@ -29,10 +29,10 @@ export default function LoginCard() {
       <div className="card-header">Login</div>
       <img
         className="card-img-top px-5 pt-4"
-        src={user.authUser?.avatar ?? userImg}
+        src={user?.avatar ?? userImg}
         alt="avatar"
       />
-      {user.authUser === null && (
+      {user.token === null && (
         <div className="card-body">
           <LoginForm
             handleSubmitForm={handleSubmitForm}
@@ -41,12 +41,12 @@ export default function LoginCard() {
           />
         </div>
       )}
-      {user.authUser !== null && (
+      {user.token !== null && (
         <div className="card-body">
           <h3 className="text-center">
             Welcome,
             {' '}
-            {user.authUser.username}
+            {user.username}
           </h3>
           <h6 className="text-muted">You will be redirected to the catalog page</h6>
         </div>

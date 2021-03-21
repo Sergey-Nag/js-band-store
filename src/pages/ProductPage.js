@@ -1,10 +1,9 @@
 import React from 'react';
-import Catalog from '../components/Catalog';
-import CatalogControls from '../components/CatalogControls';
 import Header from '../components/Header';
+import ProductSingle from '../components/ProductSingle';
 import image from '../img/unknown-guy.svg';
 
-export default function catalog() {
+export default function ProductPage({ match, history }) {
   const ITEMS = [
     {
       id: '123',
@@ -43,11 +42,14 @@ export default function catalog() {
     },
   ];
 
+  const prod = ITEMS.find(({ id }) => id === match.params.id);
+
+  if (!prod) history.push('/404');
+
   return (
     <>
       <Header />
-      <CatalogControls />
-      <Catalog items={ITEMS} />
+      <ProductSingle product={prod} />
     </>
   );
 }

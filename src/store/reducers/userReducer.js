@@ -2,10 +2,13 @@ import {
   AUTH_USER,
   AUTH_USER_ERROR,
   AUTH_USER_LOADING,
+  CLEAR_USER,
 } from '../types/userTypes';
 
 const initialState = {
-  authUser: null,
+  username: null,
+  token: null,
+  avatar: null,
   isLoading: false,
   error: null,
 };
@@ -15,8 +18,8 @@ export default function userReducer(state = initialState, action) {
     case AUTH_USER:
       return {
         isLoading: false,
-        authUser: action.payload,
         error: null,
+        ...action.payload,
       };
     case AUTH_USER_ERROR:
       return {
@@ -28,6 +31,10 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+      };
+    case CLEAR_USER:
+      return {
+        ...initialState,
       };
     default:
       return state;
