@@ -4,6 +4,7 @@ import {
   LOAD_BOOKS_LOADING,
   LOAD_BOOKS_ERROR,
   LOAD_BOOK_BY_ID,
+  LOAD_BOOK_BY_ID_LOADING,
 } from '../types/booksTypes';
 
 const query = QueryApi.getInstance();
@@ -34,7 +35,7 @@ export const loadBooks = () => async (dispatch) => {
 
 export const loadBookById = (id) => async (dispatch) => {
   dispatch({
-    type: LOAD_BOOKS_LOADING,
+    type: LOAD_BOOK_BY_ID_LOADING,
   });
 
   const { token } = JSON.parse(localStorage.getItem('authUser'));

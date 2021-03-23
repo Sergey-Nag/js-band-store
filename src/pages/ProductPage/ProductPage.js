@@ -6,7 +6,6 @@ import { loadBookById } from '../../store/actions/booksActions';
 import Spinner from '../../components/Spinner';
 
 export default function ProductPage({ match, history }) {
-  document.title = 'Catalog';
   const user = useSelector((state) => state.user);
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
@@ -15,13 +14,15 @@ export default function ProductPage({ match, history }) {
 
   useEffect(() => {
     dispatch(loadBookById(id));
-  }, [dispatch, id]);
+
+    return () => console.log('unmount');
+  }, [id, dispatch]);
 
   return (
     <>
       <Header />
-      {books.isLoading && <Spinner size="lg" center />}
-      {!books.isLoading && <ProductSingle product={books.single} />}
+      {books.isSingleLoading && <Spinner size="lg" center />}
+      {!books.isSingleLoading && books.single && <ProductSingle product={books.single} />}
     </>
   );
 }

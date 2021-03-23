@@ -1,22 +1,28 @@
 import React from 'react';
-import { Col, Button } from 'react-bootstrap';
 import ProductDescription from './ProductDescription';
 import PriceCalc from './PriceCalc';
 import Wrapp from '../Wrapp/Wrapp';
 
 export default function ProductSingle({ product }) {
   console.log(product);
+
+  if (product === null) {
+    return <></>;
+  }
+
   return (
     <Wrapp>
-      <Col md="8">
+      <div className="col-md-8">
         <ProductDescription product={product} />
-      </Col>
-      <Col>
+      </div>
+      <div>
         <PriceCalc price={product.price} />
         <div className="pt-4 text-right">
-          <Button variant="success">Add to cart</Button>
+          <button className="btn btn-success" type="button">
+            Add to cart
+          </button>
         </div>
-      </Col>
+      </div>
     </Wrapp>
   );
 }

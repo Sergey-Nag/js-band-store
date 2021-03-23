@@ -6,7 +6,6 @@ export default function ProductDescription({ product }) {
     author,
     cover,
     description,
-    level,
     tags,
   } = product;
 
@@ -22,7 +21,7 @@ export default function ProductDescription({ product }) {
             <h3>{title}</h3>
             <span className="text-muted h6">{author}</span>
             <p className="tags">
-              {tags && tags.map((tag) => <span key={tag} className="badge badge-secondary">{tag}</span>)}
+              {tags.map((tag) => <span key={tag} className="badge badge-secondary">{tag}</span>)}
             </p>
           </div>
         </div>
