@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Cart from '../components/Cart';
 
-export default function cart() {
+export default function CartPage() {
   const ITEMS = [
     {
       id: '123',

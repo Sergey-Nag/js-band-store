@@ -1,4 +1,5 @@
-@import '~bootstrap/scss/bootstrap', './variables';
+@import '~bootstrap/scss/bootstrap';
+@import './variables';
 
 body {
   background-color: $bg-color;
@@ -52,6 +53,17 @@ body {
   }
   &.primary {
     @extend .btn-outline-primary;
+    
+    &.solid {
+      @extend .btn-primary;
+    }
+  }
+  &.secondary {
+    @extend .btn-outline-secondary;
+    
+    &.solid {
+      @extend .btn-secondary;
+    }
   }
   &.light {
     @extend .btn-light;

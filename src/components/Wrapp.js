@@ -1,13 +1,9 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
 
-export default function Wrapp(props) {
-  const { children } = props;
+export default function Wrapp({ children, className }) {
   return (
-    <Container>
-      <Row {...props}>
-        {children}
-      </Row>
-    </Container>
+    <div className="container">
+      <div className={`row ${className}`}>{children}</div>
+    </div>
   );
 }
