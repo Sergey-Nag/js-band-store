@@ -11,7 +11,7 @@ export default function ProductCard({ product }) {
 
   return (
     <Card className="mb-4">
-      <Card.Img variant="top" src={cover} style={{ height: 200 }} />
+      <Card.Img className="product__image" variant="top" src={cover} style={{ height: 200 }} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>

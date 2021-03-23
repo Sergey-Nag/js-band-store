@@ -17,7 +17,6 @@ import { signinFromStorage } from './store/actions/userActions';
 export default function App() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  console.log(user.token);
 
   useEffect(() => {
     if (!user.token) dispatch(signinFromStorage());

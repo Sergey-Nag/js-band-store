@@ -6,35 +6,35 @@ import image from '../../img/unknown-guy.svg';
 export default function ProductPage({ match, history }) {
   const ITEMS = [
     {
-      id: '123',
+      id: '1',
       title: 'Book Name 1',
       author: 'T. Test',
       price: 15,
       cover: image,
     },
     {
-      id: '456',
+      id: '2',
       title: 'Book Name 2',
       author: 'T. Test',
       price: 15,
       cover: image,
     },
     {
-      id: '789',
+      id: '3',
       title: 'Book Name 3',
       author: 'T. Test',
       price: 15,
       cover: image,
     },
     {
-      id: '112',
+      id: '4',
       title: 'Book Name 4',
       author: 'T. Test',
       price: 15,
       cover: image,
     },
     {
-      id: '134',
+      id: '5',
       title: 'Book Name 5',
       author: 'T. Test',
       price: 15,
