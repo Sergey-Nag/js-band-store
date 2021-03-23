@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Table, Col, Card, Row, Button,
 } from 'react-bootstrap';
-import Wrapp from './Wrapp';
+import Wrapp from '../Wrapp/Wrapp';
 
 export default function Cart({ items }) {
   return (

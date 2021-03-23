@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cartIcon from '../../img/shopping-cart.svg';
 import { signout } from '../../store/actions/userActions';
-import Wrapp from '../Wrapp';
+import Wrapp from '../Wrapp/Wrapp';
 
 export default function Header() {
   const user = useSelector((state) => state.user);

@@ -11,7 +11,7 @@ import LoginPage from './pages/LoginPage';
 import CatalogPage from './pages/CatalogPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
-import NotFound from './pages/NotFound';
+import NotFoundPage from './pages/NotFoundPage';
 import { signinFromStorage } from './store/actions/userActions';
 
 export default function App() {
@@ -30,11 +30,11 @@ export default function App() {
           <Redirect to="/login" />
         </Route>
         <Route exact path="/login" component={LoginPage} />
-        <Route path="/404" component={NotFound} />
+        <Route path="/404" component={NotFoundPage} />
         <Route exact path="/catalog" component={CatalogPage} />
         <Route exact path="/cart" component={CartPage} />
         <Route path="/catalog/:id" component={ProductPage} />
-        <Route path="/404" component={NotFound} />
+        <Route path="/404" component={NotFoundPage} />
       </Switch>
     </Router>
   );

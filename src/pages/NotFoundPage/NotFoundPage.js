@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Wrapp from '../components/Wrapp';
+import Wrapp from '../../components/Wrapp/Wrapp';
 
-export default function NotFound() {
+export default function NotFoundPage() {
   useEffect(() => {
     document.title = '404 • Page not found';
   }, []);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Button } from 'react-bootstrap';
 import ProductDescription from './ProductDescription';
 import PriceCalc from './PriceCalc';
-import Wrapp from './Wrapp';
+import Wrapp from '../Wrapp/Wrapp';
 
 export default function ProductSingle({ product }) {
   return (

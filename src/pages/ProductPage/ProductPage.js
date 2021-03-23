@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import Catalog from '../components/Catalog';
-import CatalogControls from '../components/CatalogControls';
-import Header from '../components/Header';
-import image from '../img/unknown-guy.svg';
+import React from 'react';
+import Header from '../../components/Header';
+import ProductSingle from '../../components/ProductSingle/ProductSingle';
+import image from '../../img/unknown-guy.svg';
 
-export default function CatalogPage({ history }) {
-  document.title = 'Catalog';
-  const user = useSelector((state) => state.user);
-
+export default function ProductPage({ match, history }) {
   const ITEMS = [
     {
       id: '123',
@@ -48,13 +42,14 @@ export default function CatalogPage({ history }) {
     },
   ];
 
-  if (!user.token) return <Redirect to="/404" />;
+  const prod = ITEMS.find(({ id }) => id === match.params.id);
+
+  if (!prod) history.push('/404');
 
   return (
     <>
       <Header />
-      <CatalogControls />
-      <Catalog items={ITEMS} />
+      <ProductSingle product={prod} />
     </>
   );
 }
