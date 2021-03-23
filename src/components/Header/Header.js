@@ -1,11 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cartIcon from '../../img/shopping-cart.svg';
 import { signout } from '../../store/actions/userActions';
 import Wrapp from '../Wrapp';
 
 export default function Header() {
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const signOut = () => {
     dispatch(signout());
@@ -17,7 +18,8 @@ export default function Header() {
         <Wrapp className="py-2 justify-content-end">
           <div className="col-xs-8 col=md-2 text-right">
             <span className="d-inline-block" style={{ paddingTop: '.2rem' }}>
-              Alexander
+              {user.username}
+              <img src={user.avatar} style={{ width: 20, marginLeft: 7 }} alt="avatar" />
             </span>
           </div>
           <div className="col-xs-4 col-md-2">

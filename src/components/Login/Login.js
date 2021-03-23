@@ -42,13 +42,13 @@ export default function LoginCard() {
         </div>
       )}
       {user.token !== null && (
-        <div className="card-body">
-          <h3 className="text-center">
+        <div className="card-body text-center">
+          <h3>
             Welcome,
             {' '}
             {user.username}
           </h3>
-          <h6 className="text-muted">You will be redirected to the catalog page</h6>
+          <h6 className="text-muted">Redirecting...</h6>
         </div>
       )}
     </div>
