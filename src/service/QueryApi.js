@@ -48,4 +48,10 @@ export default class QueryApi {
 
     return request;
   }
+
+  async loadBookById(id, token) {
+    const request = await this.query('GET', `/books/${id}`, token);
+
+    return request;
+  }
 }

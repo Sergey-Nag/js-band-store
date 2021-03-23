@@ -3,6 +3,7 @@ import {
   LOAD_BOOKS,
   LOAD_BOOKS_LOADING,
   LOAD_BOOKS_ERROR,
+  LOAD_BOOK_BY_ID,
 } from '../types/booksTypes';
 
 const query = QueryApi.getInstance();
@@ -15,7 +16,7 @@ export const loadBooks = () => async (dispatch) => {
   const { token } = JSON.parse(localStorage.getItem('authUser'));
 
   const req = await query.loadBooks(token);
-  console.log(req.data);
+
   if (!req.ok) {
     dispatch({
       type: LOAD_BOOKS_ERROR,
@@ -31,22 +32,26 @@ export const loadBooks = () => async (dispatch) => {
   });
 };
 
-export const a = {};
-// export const signout = () => {
-//   localStorage.removeItem('authUser');
+export const loadBookById = (id) => async (dispatch) => {
+  dispatch({
+    type: LOAD_BOOKS_LOADING,
+  });
 
-//   return {
-//     type: CLEAR_USER,
-//   };
-// };
+  const { token } = JSON.parse(localStorage.getItem('authUser'));
 
-// export const signinFromStorage = () => {
-//   const userInStorage = localStorage.getItem('authUser');
+  const req = await query.loadBookById(id, token);
 
-//   if (!userInStorage) return { type: 'none' };
+  if (!req.ok) {
+    dispatch({
+      type: LOAD_BOOKS_ERROR,
+      payload: req.data,
+    });
 
-//   return {
-//     type: AUTH_USER,
-//     payload: JSON.parse(userInStorage),
-//   };
-// };
+    return;
+  }
+
+  dispatch({
+    type: LOAD_BOOK_BY_ID,
+    payload: req.data,
+  });
+};

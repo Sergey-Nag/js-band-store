@@ -15,15 +15,15 @@ export default function CatalogPage({ history }) {
   if (!user.token) history.push('/');
 
   useEffect(() => {
-    if (books.list.length === 0) dispatch(loadBooks());
-  }, [books.list.length, dispatch]);
+    dispatch(loadBooks());
+  }, [dispatch]);
 
   return (
     <>
       <Header />
       <CatalogControls />
       {books.isLoading && <Spinner size="lg" center />}
-      {!books.isLoading && <Catalog items={books.list} />}
+      {!books.isLoading && <Catalog items={books.catalog} />}
     </>
   );
 }

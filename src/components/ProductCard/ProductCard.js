@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-  Card, Col, Row,
-} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './ProductCard.scss';
 
 export default function ProductCard({ product }) {
   const {
@@ -10,22 +8,22 @@ export default function ProductCard({ product }) {
   } = product;
 
   return (
-    <Card className="mb-4">
-      <Card.Img className="product__image" variant="top" src={cover} style={{ height: 200 }} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{author}</Card.Subtitle>
-        <Row>
-          <Col lg="5">
+    <div className="card mb-4 product">
+      <img className="card-img-top product-img" src={cover} alt={title} />
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <h6 className="card-subtitle mb-2 text-muted">{author}</h6>
+        <div className="row">
+          <div className="col-lg-5">
             <span className="price">{price}</span>
-          </Col>
-          <Col lg="7">
+          </div>
+          <div className="col-lg-7">
             <Link to={`/catalog/${id}`} className="bttn primary">
               View
             </Link>
-          </Col>
-        </Row>
-      </Card.Body>
-    </Card>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

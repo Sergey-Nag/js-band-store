@@ -2,10 +2,12 @@ import {
   LOAD_BOOKS,
   LOAD_BOOKS_LOADING,
   LOAD_BOOKS_ERROR,
+  LOAD_BOOK_BY_ID,
 } from '../types/booksTypes';
 
 const initialState = {
-  list: [],
+  catalog: [],
+  single: null,
   isLoading: false,
   error: null,
 };
@@ -15,7 +17,13 @@ export default function userReducer(state = initialState, action) {
     case LOAD_BOOKS:
       return {
         ...state,
-        list: action.payload,
+        catalog: action.payload,
+        isLoading: false,
+      };
+    case LOAD_BOOK_BY_ID:
+      return {
+        ...state,
+        single: action.payload,
         isLoading: false,
       };
     case LOAD_BOOKS_LOADING:

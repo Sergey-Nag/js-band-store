@@ -1,55 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/Header';
 import ProductSingle from '../../components/ProductSingle/ProductSingle';
-import image from '../../img/unknown-guy.svg';
+import { loadBookById } from '../../store/actions/booksActions';
+import Spinner from '../../components/Spinner';
 
 export default function ProductPage({ match, history }) {
-  const ITEMS = [
-    {
-      id: '1',
-      title: 'Book Name 1',
-      author: 'T. Test',
-      price: 15,
-      cover: image,
-    },
-    {
-      id: '2',
-      title: 'Book Name 2',
-      author: 'T. Test',
-      price: 15,
-      cover: image,
-    },
-    {
-      id: '3',
-      title: 'Book Name 3',
-      author: 'T. Test',
-      price: 15,
-      cover: image,
-    },
-    {
-      id: '4',
-      title: 'Book Name 4',
-      author: 'T. Test',
-      price: 15,
-      cover: image,
-    },
-    {
-      id: '5',
-      title: 'Book Name 5',
-      author: 'T. Test',
-      price: 15,
-      cover: image,
-    },
-  ];
+  document.title = 'Catalog';
+  const user = useSelector((state) => state.user);
+  const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+  if (!user.token) history.push('/');
+  const { id } = match.params;
 
-  const prod = ITEMS.find(({ id }) => id === match.params.id);
-
-  if (!prod) history.push('/404');
+  useEffect(() => {
+    dispatch(loadBookById(id));
+  }, [dispatch, id]);
 
   return (
     <>
       <Header />
-      <ProductSingle product={prod} />
+      {books.isLoading && <Spinner size="lg" center />}
+      {!books.isLoading && <ProductSingle product={books.single} />}
     </>
   );
 }

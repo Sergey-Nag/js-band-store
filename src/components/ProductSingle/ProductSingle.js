@@ -5,6 +5,7 @@ import PriceCalc from './PriceCalc';
 import Wrapp from '../Wrapp/Wrapp';
 
 export default function ProductSingle({ product }) {
+  console.log(product);
   return (
     <Wrapp>
       <Col md="8">
