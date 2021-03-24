@@ -15,7 +15,6 @@ export default function ProductSingle({ product }) {
     dispatch(pushProductToCart({
       id, title, userCount, price, totalPrice,
     }));
-    console.log(userCount);
   },
   [dispatch, product, userCount, totalPrice]);
 
