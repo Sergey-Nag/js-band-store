@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductDescription from './ProductDescription';
 import PriceCalc from './PriceCalc';
 import Wrapp from '../Wrapp/Wrapp';
 
 export default function ProductSingle({ product }) {
-  console.log(product);
+  const [isAddAvailable, setAddAvailable] = useState(true);
 
   if (product === null) {
     return <></>;
@@ -15,10 +15,14 @@ export default function ProductSingle({ product }) {
       <div className="col-md-8">
         <ProductDescription product={product} />
       </div>
-      <div>
-        <PriceCalc price={product.price} />
+      <div className="col-md-4">
+        <PriceCalc isAvailable={setAddAvailable} price={product.price} count={product.count} />
         <div className="pt-4 text-right">
-          <button className="btn btn-success" type="button">
+          <button
+            className="btn btn-success"
+            type="button"
+            disabled={!isAddAvailable}
+          >
             Add to cart
           </button>
         </div>

@@ -5,6 +5,7 @@ import {
   LOAD_BOOKS_ERROR,
   LOAD_BOOK_BY_ID,
   LOAD_BOOK_BY_ID_LOADING,
+  CLEAR_BOOK_SINGLE,
 } from '../types/booksTypes';
 
 const query = QueryApi.getInstance();
@@ -56,3 +57,7 @@ export const loadBookById = (id) => async (dispatch) => {
     payload: req.data,
   });
 };
+
+export const clearBookSingle = () => ({
+  type: CLEAR_BOOK_SINGLE,
+});

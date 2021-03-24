@@ -4,6 +4,7 @@ import {
   LOAD_BOOKS_ERROR,
   LOAD_BOOK_BY_ID,
   LOAD_BOOK_BY_ID_LOADING,
+  CLEAR_BOOK_SINGLE,
 } from '../types/booksTypes';
 
 const initialState = {
@@ -42,6 +43,11 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         error: action.payload,
+      };
+    case CLEAR_BOOK_SINGLE:
+      return {
+        ...state,
+        single: null,
       };
     default:
       return state;

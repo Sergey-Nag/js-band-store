@@ -7,7 +7,6 @@ import Spinner from '../../components/Spinner/Spinner';
 import { loadBooks } from '../../store/actions/booksActions';
 
 export default function CatalogPage({ history }) {
-  document.title = 'Catalog';
   const user = useSelector((state) => state.user);
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
@@ -15,6 +14,8 @@ export default function CatalogPage({ history }) {
   if (!user.token) history.push('/');
 
   useEffect(() => {
+    document.title = 'Catalog';
+
     dispatch(loadBooks());
   }, [dispatch]);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProductDescription.scss';
 
 export default function ProductDescription({ product }) {
   const {
@@ -10,10 +11,10 @@ export default function ProductDescription({ product }) {
   } = product;
 
   return (
-    <div className="card">
+    <div className="card product-desc">
       <div className="row">
         <div className="col">
-          <img src={cover} className="w-100" alt="a" />
+          <img src={cover} className="product-desc-img w-100" alt="a" />
           <p className="p-4">{description}</p>
         </div>
         <div className="col">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cartIcon from '../../img/shopping-cart.svg';
@@ -8,9 +8,9 @@ import Wrapp from '../Wrapp/Wrapp';
 export default function Header() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const signOut = () => {
+  const signOut = useCallback(() => {
     dispatch(signout());
-  };
+  }, [dispatch]);
 
   return (
     <header className="mb-5">
@@ -19,11 +19,19 @@ export default function Header() {
           <div className="col-xs-8 col=md-2 text-right">
             <span className="d-inline-block" style={{ paddingTop: '.2rem' }}>
               {user.username}
-              <img src={user.avatar} style={{ width: 20, marginLeft: 7 }} alt="avatar" />
+              <img
+                src={user.avatar}
+                style={{ width: 20, marginLeft: 7 }}
+                alt="avatar"
+              />
             </span>
           </div>
           <div className="col-xs-4 col-md-2">
-            <button className="bttn secondary solid btn-sm" type="button" onClick={signOut}>
+            <button
+              className="bttn secondary solid btn-sm"
+              type="button"
+              onClick={signOut}
+            >
               Sign Out
             </button>
           </div>
@@ -32,7 +40,9 @@ export default function Header() {
       <div className="border-bottom bg-light">
         <Wrapp className="py-5">
           <div className="col-xs-8 col-md-10">
-            <h2><Link to="/catalog">JS Band Store</Link></h2>
+            <h2>
+              <Link to="/catalog">JS Band Store</Link>
+            </h2>
           </div>
           <div className="col-xs-4 col-md-2">
             <div className="d-flex flex-column justify-content-center h-100">

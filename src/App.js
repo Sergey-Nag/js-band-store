@@ -19,7 +19,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!user.token) dispatch(signinFromStorage());
+    dispatch(signinFromStorage());
   }, [user.token, dispatch]);
 
   return (

@@ -1,37 +1,53 @@
-import React from 'react';
-import {
-  Card, Row, Col, InputGroup, FormControl,
-} from 'react-bootstrap';
+import React, { useCallback, useState } from 'react';
 
-export default function PriceCalc({ price }) {
+export default function PriceCalc({ price, count, isAvailable }) {
+  const [inputCount, setInputCount] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(price);
+  const countChange = useCallback(({ target }) => {
+    const { value } = target;
+    if (value <= count) {
+      setInputCount(value);
+      setTotalPrice(value * price);
+      isAvailable(true);
+    } else {
+      isAvailable(false);
+    }
+  }, [count, isAvailable, price]);
+
   return (
-    <Card className="p-4">
-      <Row>
-        <Col md="8">
+    <div className="card p-4">
+      <div className="row">
+        <div className="col-md-8">
           <p>Price, $</p>
-        </Col>
-        <Col className="text-right">
+        </div>
+        <div className="col text-right">
           <p>{price}</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col md="8">
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-8">
           <p>Count</p>
-        </Col>
-        <Col className="text-right">
-          <InputGroup size="sm" style={{ marginBottom: '.7em' }}>
-            <FormControl type="number" defaultValue={1} min="1" />
-          </InputGroup>
-        </Col>
-      </Row>
-      <Row className="font-weight-bold">
-        <Col md="8">
+        </div>
+        <div className="col text-right">
+          <div className="input-group" size="sm" style={{ marginTop: '-3px' }}>
+            <input
+              className="form-control form-control-sm"
+              type="number"
+              min="1"
+              value={inputCount}
+              onChange={countChange}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="row font-weight-bold">
+        <div className="col-md-8">
           <p>Total Price, $</p>
-        </Col>
-        <Col className="text-right">
-          <p>{price}</p>
-        </Col>
-      </Row>
-    </Card>
+        </div>
+        <div className="col text-right">
+          <p>{totalPrice}</p>
+        </div>
+      </div>
+    </div>
   );
 }
