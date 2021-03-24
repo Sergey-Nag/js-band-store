@@ -1,18 +1,15 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 
 export default function PriceCalc({
   price, totalPrice, count, userCount, setUserCount, setTotalPrice,
 }) {
-  const multiplyPrice = useCallback((value) => (value * price).toFixed(2), [price]);
+  const multiplyPrice = useCallback((value) => +(value * price).toFixed(2), [price]);
 
-  const countChange = useCallback(
-    ({ target }) => {
-      const { value } = target;
-      setTotalPrice(multiplyPrice(value));
-      setUserCount(value);
-    },
-    [multiplyPrice, setUserCount, setTotalPrice],
-  );
+  const countChange = useCallback(({ target }) => {
+    const value = +target.value;
+    setTotalPrice(multiplyPrice(value));
+    setUserCount(value);
+  }, [multiplyPrice, setUserCount, setTotalPrice]);
 
   return (
     <div className="card p-4">

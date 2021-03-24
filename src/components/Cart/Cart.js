@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Wrapp from '../Wrapp/Wrapp';
 
 export default function Cart({ items }) {
+  const [totalSum, setTotalSum] = useState(0);
+
+  useEffect(() => {
+    const total = items.reduce((acc, { totalPrice }) => acc + totalPrice, 0);
+    setTotalSum(total.toFixed(2));
+  }, [items]);
+
   return (
     <Wrapp>
       <div className="col">
@@ -31,7 +38,12 @@ export default function Cart({ items }) {
         </div>
         <div className="row mt-4 justify-content-end">
           <div className="col-md-2 col-sm-4 text-right">
-            <b>Total Price: 140.00$</b>
+            <b>
+              Total Price:
+              {' '}
+              {totalSum}
+              $
+            </b>
           </div>
         </div>
       </div>
