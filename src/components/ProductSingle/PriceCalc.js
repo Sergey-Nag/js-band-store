@@ -1,18 +1,19 @@
 import React, { useCallback, useState } from 'react';
 
-export default function PriceCalc({ price, count, isAvailable }) {
+export default function PriceCalc({ price, count }) {
   const [inputCount, setInputCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
-  const countChange = useCallback(({ target }) => {
-    const { value } = target;
-    if (value <= count) {
+
+  const multiplyPrice = useCallback((value) => (value * price).toFixed(2), [price]);
+
+  const countChange = useCallback(
+    ({ target }) => {
+      const { value } = target;
       setInputCount(value);
-      setTotalPrice(value * price);
-      isAvailable(true);
-    } else {
-      isAvailable(false);
-    }
-  }, [count, isAvailable, price]);
+      setTotalPrice(multiplyPrice(value));
+    },
+    [multiplyPrice],
+  );
 
   return (
     <div className="card p-4">
@@ -34,6 +35,7 @@ export default function PriceCalc({ price, count, isAvailable }) {
               className="form-control form-control-sm"
               type="number"
               min="1"
+              max={count}
               value={inputCount}
               onChange={countChange}
             />

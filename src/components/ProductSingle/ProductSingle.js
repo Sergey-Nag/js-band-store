@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProductDescription from './ProductDescription';
 import PriceCalc from './PriceCalc';
 import Wrapp from '../Wrapp/Wrapp';
 
 export default function ProductSingle({ product }) {
-  const [isAddAvailable, setAddAvailable] = useState(true);
-
   if (product === null) {
     return <></>;
   }
@@ -16,13 +14,9 @@ export default function ProductSingle({ product }) {
         <ProductDescription product={product} />
       </div>
       <div className="col-md-4">
-        <PriceCalc isAvailable={setAddAvailable} price={product.price} count={product.count} />
+        <PriceCalc price={product.price} count={product.count} />
         <div className="pt-4 text-right">
-          <button
-            className="btn btn-success"
-            type="button"
-            disabled={!isAddAvailable}
-          >
+          <button className="btn btn-success" type="button">
             Add to cart
           </button>
         </div>
