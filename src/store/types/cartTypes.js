@@ -1,0 +1,3 @@
+const PUSH_PRODUCT_TO_CART = 'PUSH_PRODUCT_TO_CART';
+
+export default PUSH_PRODUCT_TO_CART;

@@ -5,9 +5,9 @@ import {
   FormControl,
   Form,
 } from 'react-bootstrap';
-import searchIcon from '../img/search.svg';
-import filterIcon from '../img/filter.svg';
-import Wrapp from './Wrapp';
+import searchIcon from '../../img/search.svg';
+import filterIcon from '../../img/filter.svg';
+import Wrapp from '../Wrapp/Wrapp';
 
 export default function CatalogControls() {
   return (

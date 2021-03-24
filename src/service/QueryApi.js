@@ -9,11 +9,7 @@ export default class QueryApi {
     return QueryApi.instance;
   }
 
-  constructor() {
-    this.token = null;
-  }
-
-  async query(method, path, data) {
+  async query(method, path, token, data) {
     let response = null;
 
     try {
@@ -21,9 +17,12 @@ export default class QueryApi {
         method,
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
+          Authorization: token ? `Bearer ${token}` : false,
         },
         body: JSON.stringify(data),
       });
+
+      console.log(request);
 
       response = {
         ok: request.ok,
@@ -36,14 +35,22 @@ export default class QueryApi {
     return response;
   }
 
-  setToken(token) {
-    this.token = token;
-  }
-
   async signin(username) {
-    const request = await this.query('POST', '/signin', {
+    const request = await this.query('POST', '/signin', false, {
       username,
     });
+
+    return request;
+  }
+
+  async loadBooks(token) {
+    const request = await this.query('GET', '/books', token);
+
+    return request;
+  }
+
+  async loadBookById(id, token) {
+    const request = await this.query('GET', `/books/${id}`, token);
 
     return request;
   }
