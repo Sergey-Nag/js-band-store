@@ -1,19 +1,17 @@
 import React, { useCallback, useState } from 'react';
 
-export default function PriceCalc({ price, count, setUserCount }) {
-  const [inputCount, setInputCount] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(price);
-
+export default function PriceCalc({
+  price, totalPrice, count, userCount, setUserCount, setTotalPrice,
+}) {
   const multiplyPrice = useCallback((value) => (value * price).toFixed(2), [price]);
 
   const countChange = useCallback(
     ({ target }) => {
       const { value } = target;
-      setInputCount(value);
       setTotalPrice(multiplyPrice(value));
       setUserCount(value);
     },
-    [multiplyPrice, setUserCount],
+    [multiplyPrice, setUserCount, setTotalPrice],
   );
 
   return (
@@ -37,7 +35,7 @@ export default function PriceCalc({ price, count, setUserCount }) {
               type="number"
               min="1"
               max={count}
-              value={inputCount}
+              value={userCount}
               onChange={countChange}
             />
           </div>

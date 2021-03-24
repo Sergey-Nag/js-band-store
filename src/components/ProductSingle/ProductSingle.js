@@ -6,16 +6,18 @@ import Wrapp from '../Wrapp/Wrapp';
 import { pushProductToCart } from '../../store/actions/cartActions';
 
 export default function ProductSingle({ product }) {
-  const [userCount, setUserCount] = useState(product.price);
+  const [userCount, setUserCount] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(product.price);
   const dispatch = useDispatch();
 
   const addProductToCart = useCallback(() => {
     const { id, title, price } = product;
     dispatch(pushProductToCart({
-      id, title, userCount, price,
+      id, title, userCount, price, totalPrice,
     }));
+    console.log(userCount);
   },
-  [dispatch, product, userCount]);
+  [dispatch, product, userCount, totalPrice]);
 
   return (
     <Wrapp>
@@ -25,8 +27,11 @@ export default function ProductSingle({ product }) {
       <div className="col-md-4">
         <PriceCalc
           price={product.price}
+          totalPrice={totalPrice}
           count={product.count}
+          userCount={userCount}
           setUserCount={setUserCount}
+          setTotalPrice={setTotalPrice}
         />
         <div className="pt-4 text-right">
           <button
