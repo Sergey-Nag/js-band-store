@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
-export default function PriceCalc({ price, count }) {
+export default function PriceCalc({ price, count, setUserCount }) {
   const [inputCount, setInputCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
 
@@ -11,8 +11,9 @@ export default function PriceCalc({ price, count }) {
       const { value } = target;
       setInputCount(value);
       setTotalPrice(multiplyPrice(value));
+      setUserCount(value);
     },
-    [multiplyPrice],
+    [multiplyPrice, setUserCount],
   );
 
   return (

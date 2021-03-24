@@ -31,7 +31,7 @@ export default function ProductPage({ match, history }) {
     <>
       <Header />
       {books.isSingleLoading && <Spinner size="lg" center />}
-      {!books.isSingleLoading && <ProductSingle product={books.single} />}
+      {!books.isSingleLoading && books.single && <ProductSingle product={books.single} />}
     </>
   );
 }

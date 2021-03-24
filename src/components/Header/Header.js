@@ -7,7 +7,9 @@ import Wrapp from '../Wrapp/Wrapp';
 
 export default function Header() {
   const user = useSelector((state) => state.user);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
   const signOut = useCallback(() => {
     dispatch(signout());
   }, [dispatch]);
@@ -50,7 +52,11 @@ export default function Header() {
                 <img className="bttn-img" src={cartIcon} alt="cart" />
                 Cart
                 {' '}
-                <b>(0)</b>
+                <b>
+                  (
+                  {cart.length}
+                  )
+                </b>
               </Link>
             </div>
           </div>
