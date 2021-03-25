@@ -48,6 +48,13 @@ body {
     width: 18px;
     margin: -4px 7px 0 0;
   }
+  &-close {
+    padding: 0;
+
+    .bttn-img {
+      margin-right: 0;
+    }
+  }
   &-spin {
     margin: 0 7px 2px 0;
   }

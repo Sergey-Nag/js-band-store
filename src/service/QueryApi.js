@@ -22,7 +22,7 @@ export default class QueryApi {
         body: JSON.stringify(data),
       });
 
-      console.log(request);
+      console.log(request.url, request.status);
 
       response = {
         ok: request.ok,
@@ -51,6 +51,14 @@ export default class QueryApi {
 
   async loadBookById(id, token) {
     const request = await this.query('GET', `/books/${id}`, token);
+
+    return request;
+  }
+
+  async purchase(data, token) {
+    const request = await this.query('POST', '/purchase', token, {
+      books: data,
+    });
 
     return request;
   }

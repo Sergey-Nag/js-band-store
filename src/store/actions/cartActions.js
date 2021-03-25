@@ -1,4 +1,6 @@
-import PUSH_PRODUCT_TO_CART from '../types/cartTypes';
+import {
+  PUSH_PRODUCT_TO_CART,
+} from '../types/cartTypes';
 
 export const pushProductToCart = (product) => ({
   type: PUSH_PRODUCT_TO_CART,

@@ -17,8 +17,8 @@ export default function Cart({ items }) {
             <thead>
               <tr>
                 <th className="w-75 border-top-0">Name</th>
-                <th className="border-top-0">Count</th>
-                <th className="border-top-0">Price</th>
+                <th className="border-top-0 text-right">Count</th>
+                <th className="border-top-0 text-right">Price</th>
                 <th className="text-right border-top-0">Total</th>
               </tr>
             </thead>
@@ -28,8 +28,8 @@ export default function Cart({ items }) {
               }) => (
                 <tr key={id}>
                   <td>{title}</td>
-                  <td>{userCount}</td>
-                  <td>{price}</td>
+                  <td className="text-right">{userCount}</td>
+                  <td className="text-right">{price}</td>
                   <td className="text-right">{totalPrice}</td>
                 </tr>
               ))}

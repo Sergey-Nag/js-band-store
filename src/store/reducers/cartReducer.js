@@ -1,4 +1,4 @@
-import PUSH_PRODUCT_TO_CART from '../types/cartTypes';
+import { CLEAR_CART, PUSH_PRODUCT_TO_CART } from '../types/cartTypes';
 
 const initialState = [];
 
@@ -9,6 +9,8 @@ export default function userReducer(state = initialState, action) {
         ...state,
         action.payload,
       ];
+    case CLEAR_CART:
+      return [];
     default:
       return state;
   }

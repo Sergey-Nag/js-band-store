@@ -1,0 +1,12 @@
+@import '../../scss/variables';
+
+.modal-card {
+  box-shadow: 0 0 100px rgba(0, 0, 0, .3);
+
+  &-wrapp {
+    height: 100%;
+    position: fixed;
+    background: $modal-bg;
+    z-index: 1000;
+  }
+}
