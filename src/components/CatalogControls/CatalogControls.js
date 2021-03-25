@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import searchIcon from '../../img/search.svg';
 import filterIcon from '../../img/filter.svg';
 import Wrapp from '../Wrapp/Wrapp';
-import { filterBooksByPrice } from '../../store/actions/booksActions';
+import { filterBooksByPrice, filterByTitle } from '../../store/actions/booksActions';
 
 export default function CatalogControls() {
   const [filterText, setFilterText] = useState('');
@@ -11,9 +11,10 @@ export default function CatalogControls() {
   const dispatch = useDispatch();
 
   const filterByText = useCallback(({ target }) => {
-    console.log(target.value);
-    setFilterText(target.value);
-  }, [setFilterText]);
+    const { value } = target;
+    setFilterText(value);
+    dispatch(filterByTitle(value));
+  }, [setFilterText, dispatch]);
 
   const filterByPrice = useCallback(({ target }) => {
     const { value } = target;

@@ -8,6 +8,8 @@ import {
   CLEAR_BOOK_SINGLE,
   FILTER_BOOKS,
   CLEAR_FILTER_BOOKS,
+  ADD_FILTER_BOOKS_BY_PRICE,
+  CLEAR_FILTER_BOOKS_BY_PRICE,
 } from '../types/booksTypes';
 
 const query = QueryApi.getInstance();
@@ -64,15 +66,36 @@ export const clearBookSingle = () => ({
   type: CLEAR_BOOK_SINGLE,
 });
 
-export const filterBooksByPrice = (value) => {
+export const filterBooksByPrice = (value) => (dispatch) => {
   let payload;
 
   if (value === 'to_25') {
-    payload = ({ price }) => price < 25;
+    payload = (price) => price < 25;
   } else if (value === 'between') {
-    payload = ({ price }) => price > 25 && price < 50;
+    payload = (price) => price > 25 && price < 50;
   } else if (value === 'higher_50') {
-    payload = ({ price }) => price > 50;
+    payload = (price) => price > 50;
+  } else {
+    dispatch({
+      type: CLEAR_FILTER_BOOKS_BY_PRICE,
+    });
+  }
+
+  dispatch({
+    type: ADD_FILTER_BOOKS_BY_PRICE,
+    payload,
+  });
+
+  dispatch({
+    type: FILTER_BOOKS,
+  });
+};
+
+export const filterByTitle = (value) => {
+  let payload;
+
+  if (value) {
+    payload = ({ title }) => title.toLowerCase().includes(value.toLowerCase());
   } else {
     return {
       type: CLEAR_FILTER_BOOKS,

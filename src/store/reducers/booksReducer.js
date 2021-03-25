@@ -7,16 +7,24 @@ import {
   CLEAR_BOOK_SINGLE,
   FILTER_BOOKS,
   CLEAR_FILTER_BOOKS,
+  ADD_FILTER_BOOKS_BY_PRICE,
+  ADD_FILTER_BOOKS_BY_TITLE,
 } from '../types/booksTypes';
 
 const initialState = {
   catalog: [],
+  filterСondition: {
+    title: () => true,
+    price: () => true,
+  },
   filteredCatalog: null,
   single: null,
   isCatalogLoading: false,
   isSingleLoading: false,
   error: null,
 };
+
+const filterConditions = (cond) => ({ title, price }) => cond.title(title) && cond.price(price);
 
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
@@ -52,12 +60,26 @@ export default function userReducer(state = initialState, action) {
         ...state,
         single: null,
       };
+    case ADD_FILTER_BOOKS_BY_PRICE:
+      return {
+        ...state,
+        filterСondition: {
+          ...state.filterСondition,
+          price: action.payload,
+        },
+      };
+    case ADD_FILTER_BOOKS_BY_TITLE:
+      return {
+        ...state,
+        filterСondition: {
+          ...state.filterСondition,
+          title: action.payload,
+        },
+      };
     case FILTER_BOOKS:
       return {
         ...state,
-        filteredCatalog: [
-          ...state.catalog.filter(action.payload),
-        ],
+        filteredCatalog: state.catalog.filter(filterConditions(state.filterСondition)),
       };
     case CLEAR_FILTER_BOOKS:
       return {
