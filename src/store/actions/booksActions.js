@@ -6,6 +6,8 @@ import {
   LOAD_BOOK_BY_ID,
   LOAD_BOOK_BY_ID_LOADING,
   CLEAR_BOOK_SINGLE,
+  FILTER_BOOKS,
+  CLEAR_FILTER_BOOKS,
 } from '../types/booksTypes';
 
 const query = QueryApi.getInstance();
@@ -61,3 +63,24 @@ export const loadBookById = (id) => async (dispatch) => {
 export const clearBookSingle = () => ({
   type: CLEAR_BOOK_SINGLE,
 });
+
+export const filterBooksByPrice = (value) => {
+  let payload;
+
+  if (value === 'to_25') {
+    payload = ({ price }) => price < 25;
+  } else if (value === 'between') {
+    payload = ({ price }) => price > 25 && price < 50;
+  } else if (value === 'higher_50') {
+    payload = ({ price }) => price > 50;
+  } else {
+    return {
+      type: CLEAR_FILTER_BOOKS,
+    };
+  }
+
+  return {
+    type: FILTER_BOOKS,
+    payload,
+  };
+};

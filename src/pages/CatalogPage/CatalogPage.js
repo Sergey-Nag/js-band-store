@@ -24,7 +24,7 @@ export default function CatalogPage({ history }) {
       <Header />
       <CatalogControls />
       {books.isCatalogLoading && <Spinner size="lg" center />}
-      {!books.isCatalogLoading && <Catalog items={books.catalog} />}
+      {!books.isCatalogLoading && <Catalog items={books.filteredCatalog ?? books.catalog} />}
     </>
   );
 }
