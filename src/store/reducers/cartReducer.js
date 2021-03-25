@@ -1,4 +1,4 @@
-import PUSH_PRODUCT_TO_CART from '../types/cartTypes';
+import { PUSH_PRODUCT_TO_CART } from '../types/cartTypes';
 
 const initialState = [];
 
