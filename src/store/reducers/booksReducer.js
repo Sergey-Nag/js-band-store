@@ -9,11 +9,13 @@ import {
   CLEAR_FILTER_BOOKS,
   ADD_FILTER_BOOKS_BY_PRICE,
   ADD_FILTER_BOOKS_BY_TITLE,
+  CLEAR_FILTER_BOOKS_BY_PRICE,
+  CLEAR_FILTER_BOOKS_BY_TITLE,
 } from '../types/booksTypes';
 
 const initialState = {
   catalog: [],
-  filterСondition: {
+  filterCondition: {
     title: () => true,
     price: () => true,
   },
@@ -63,23 +65,39 @@ export default function userReducer(state = initialState, action) {
     case ADD_FILTER_BOOKS_BY_PRICE:
       return {
         ...state,
-        filterСondition: {
-          ...state.filterСondition,
+        filterCondition: {
+          ...state.filterCondition,
           price: action.payload,
+        },
+      };
+    case CLEAR_FILTER_BOOKS_BY_PRICE:
+      return {
+        ...state,
+        filterCondition: {
+          ...state.filterCondition,
+          price: () => true,
         },
       };
     case ADD_FILTER_BOOKS_BY_TITLE:
       return {
         ...state,
-        filterСondition: {
-          ...state.filterСondition,
+        filterCondition: {
+          ...state.filterCondition,
           title: action.payload,
+        },
+      };
+    case CLEAR_FILTER_BOOKS_BY_TITLE:
+      return {
+        ...state,
+        filterCondition: {
+          ...state.filterCondition,
+          title: () => true,
         },
       };
     case FILTER_BOOKS:
       return {
         ...state,
-        filteredCatalog: state.catalog.filter(filterConditions(state.filterСondition)),
+        filteredCatalog: state.catalog.filter(filterConditions(state.filterCondition)),
       };
     case CLEAR_FILTER_BOOKS:
       return {
