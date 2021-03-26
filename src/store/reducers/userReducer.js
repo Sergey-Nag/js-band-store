@@ -1,6 +1,7 @@
 import {
   AUTH_USER,
   AUTH_USER_ERROR,
+  CLEAR_USER_ERROR,
   AUTH_USER_LOADING,
   CLEAR_USER,
 } from '../types/userTypes';
@@ -26,6 +27,11 @@ export default function userReducer(state = initialState, action) {
         ...state,
         isLoading: false,
         error: action.payload,
+      };
+    case CLEAR_USER_ERROR:
+      return {
+        ...state,
+        error: null,
       };
     case AUTH_USER_LOADING:
       return {

@@ -26,10 +26,10 @@ export default function CartPage() {
           message: <Cart items={[...cart]} />,
           onClose: () => {
             dispatch({ type: CLEAR_PURCHASE });
+            dispatch({ type: CLEAR_CART });
           },
         },
       });
-      dispatch({ type: CLEAR_CART });
     }
   }, [purchase.isSuccess, dispatch, cart]);
 

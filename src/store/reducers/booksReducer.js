@@ -2,6 +2,7 @@ import {
   LOAD_BOOKS,
   LOAD_BOOKS_LOADING,
   LOAD_BOOKS_ERROR,
+  CLEAR_BOOKS_ERROR,
   LOAD_BOOK_BY_ID,
   LOAD_BOOK_BY_ID_LOADING,
   CLEAR_BOOK_SINGLE,
@@ -54,6 +55,11 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         error: action.payload,
+      };
+    case CLEAR_BOOKS_ERROR:
+      return {
+        ...state,
+        error: null,
       };
     case CLEAR_BOOK_SINGLE:
       return {

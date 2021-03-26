@@ -9,4 +9,13 @@
     background: $modal-bg;
     z-index: 1000;
   }
+
+  &-error {
+    @extend .alert-danger;
+    // background-color: $bg-card-danger;
+
+    .bttn.btn-close {
+      @extend .btn-outline-danger;
+    }
+  }
 }

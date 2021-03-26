@@ -19,7 +19,7 @@ import useRequestError from './hooks/useRequestError';
 export default function App() {
   const user = useSelector((state) => state.user);
   const modal = useSelector((state) => state.modal);
-  const { isError, errorMessage } = useRequestError();
+  const error = useRequestError();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,8 +47,8 @@ export default function App() {
   console.log('token');
   return (
     <>
-      {isError && <Modal type="error" message={errorMessage} />}
-      {modal.message && <Modal message={modal.message} />}
+      {error.isError && <Modal error data={error} />}
+      {modal.message && <Modal data={modal} />}
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/">

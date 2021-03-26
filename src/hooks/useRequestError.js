@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { CLEAR_BOOKS_ERROR } from '../store/types/booksTypes';
+import { CLEAR_PURCHASE_ERROR } from '../store/types/purchaseTypes';
+import { CLEAR_USER_ERROR } from '../store/types/userTypes';
 
 const useRequestError = () => {
   const [isError, setError] = useState(false);
@@ -7,6 +10,13 @@ const useRequestError = () => {
   const user = useSelector((state) => state.user);
   const books = useSelector((state) => state.books);
   const purchase = useSelector((state) => state.purchase);
+  const dispatch = useDispatch();
+
+  const clearError = useCallback(() => {
+    dispatch({ type: CLEAR_BOOKS_ERROR });
+    dispatch({ type: CLEAR_USER_ERROR });
+    dispatch({ type: CLEAR_PURCHASE_ERROR });
+  }, [dispatch]);
 
   useEffect(() => {
     let message = null;
@@ -35,6 +45,7 @@ const useRequestError = () => {
   return {
     isError,
     errorMessage,
+    clearError,
   };
 };
 
