@@ -11,7 +11,7 @@ export default function LoginPage({ history }) {
 
     if (user.token !== null) {
       setTimeout(() => {
-        history.push('/catalog');
+        history.replace('/catalog');
       }, 2000);
     }
   }, [user.token, history]);

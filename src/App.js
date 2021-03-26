@@ -26,41 +26,41 @@ export default function App() {
     dispatch(signinFromStorage());
   }, [user.token, dispatch]);
 
-  if (!user.token) {
-    console.log('no token');
+  if (user.token || localStorage.getItem('authUser')) {
+    console.log('token');
     return (
       <>
         {error.isError && <Modal error data={error} />}
-        {modal.message && <Modal message={modal.message} />}
+        {modal.message && <Modal data={modal} />}
         <Router basename={process.env.PUBLIC_URL}>
           <Switch>
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/not-found" component={NotFoundPage} />
-            <Route path="*">
-              <Redirect to="/login" />
+            <Route exact path="/">
+              <Redirect to="/catalog" />
             </Route>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/catalog" component={CatalogPage} />
+            <Route exact path="/cart" component={CartPage} />
+            <Route path="/catalog/:id" component={ProductPage} />
+            <Route exact path="/not-found" component={NotFoundPage} />
+            <Route path="*" component={NotFoundPage} />
           </Switch>
         </Router>
       </>
     );
   }
 
-  console.log('token');
+  console.log('no token');
   return (
     <>
       {error.isError && <Modal error data={error} />}
-      {modal.message && <Modal data={modal} />}
+      {modal.message && <Modal message={modal.message} />}
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/catalog" />
-          </Route>
           <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/catalog" component={CatalogPage} />
-          <Route exact path="/cart" component={CartPage} />
-          <Route path="/catalog/:id" component={ProductPage} />
           <Route exact path="/not-found" component={NotFoundPage} />
-          <Route path="*" component={NotFoundPage} />
+          <Route path="*">
+            <Redirect to="/login" />
+          </Route>
         </Switch>
       </Router>
     </>
