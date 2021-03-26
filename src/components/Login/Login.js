@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './Login.scss';
 import userImg from '../../img/unknown-guy.svg';
 import { signin } from '../../store/actions/userActions';
 import LoginForm from './LoginForm';

@@ -5,15 +5,10 @@ import ProductSingle from '../../components/ProductSingle/ProductSingle';
 import { clearBookSingle, loadBookById } from '../../store/actions/booksActions';
 import Spinner from '../../components/Spinner';
 
-export default function ProductPage({ match, history }) {
-  const user = useSelector((state) => state.user);
+export default function ProductPage({ match }) {
   const books = useSelector((state) => state.books);
   const dispatch = useDispatch();
   const { id } = match.params;
-
-  useEffect(() => {
-    if (!user.token) history.push('/');
-  }, [user.token, history]);
 
   useEffect(() => {
     dispatch(loadBookById(id));

@@ -1,6 +1,7 @@
 import {
   PURCHASE_SUCCESS,
   PURCHASE_ERROR,
+  CLEAR_PURCHASE_ERROR,
   PURCHASE_SENDING,
   CLEAR_PURCHASE,
 } from '../types/purchaseTypes';
@@ -8,7 +9,7 @@ import {
 const initialState = {
   isSending: false,
   isSuccess: false,
-  error: {},
+  error: null,
 };
 
 export default function userReducer(state = initialState, action) {
@@ -29,6 +30,11 @@ export default function userReducer(state = initialState, action) {
         ...state,
         error: action.payload,
         isSending: false,
+      };
+    case CLEAR_PURCHASE_ERROR:
+      return {
+        ...state,
+        error: null,
       };
     case CLEAR_PURCHASE:
       return {

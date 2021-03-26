@@ -9,9 +9,7 @@ import {
   FILTER_BOOKS,
   CLEAR_FILTER_BOOKS,
   ADD_FILTER_BOOKS_BY_PRICE,
-  CLEAR_FILTER_BOOKS_BY_PRICE,
   ADD_FILTER_BOOKS_BY_TITLE,
-  CLEAR_FILTER_BOOKS_BY_TITLE,
 } from '../types/booksTypes';
 
 const query = QueryApi.getInstance();
@@ -85,7 +83,7 @@ const updateCatalog = (getState) => {
 
 export const filterBooksByPrice = (value) => (dispatch, getState) => {
   let payload;
-  let type = ADD_FILTER_BOOKS_BY_PRICE;
+  const type = ADD_FILTER_BOOKS_BY_PRICE;
 
   if (value === 'to_25') {
     payload = (price) => price < 25;
@@ -94,7 +92,7 @@ export const filterBooksByPrice = (value) => (dispatch, getState) => {
   } else if (value === 'higher_50') {
     payload = (price) => price > 50;
   } else {
-    type = CLEAR_FILTER_BOOKS_BY_PRICE;
+    payload = () => true;
   }
 
   dispatch({
@@ -106,16 +104,17 @@ export const filterBooksByPrice = (value) => (dispatch, getState) => {
 };
 
 export const filterByTitle = (value) => (dispatch, getState) => {
+  let payload;
   if (value) {
-    dispatch({
-      type: ADD_FILTER_BOOKS_BY_TITLE,
-      payload: (title) => title.toLowerCase().includes(value.toLowerCase()),
-    });
+    payload = (title) => title.toLowerCase().includes(value.trim().toLowerCase());
   } else {
-    dispatch({
-      type: CLEAR_FILTER_BOOKS_BY_TITLE,
-    });
+    payload = () => true;
   }
+
+  dispatch({
+    type: ADD_FILTER_BOOKS_BY_TITLE,
+    payload,
+  });
 
   dispatch(updateCatalog(getState));
 };

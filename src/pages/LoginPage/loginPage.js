@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './login.scss';
 import { useSelector } from 'react-redux';
 
 import LoginCard from '../../components/Login';
@@ -12,7 +11,7 @@ export default function LoginPage({ history }) {
 
     if (user.token !== null) {
       setTimeout(() => {
-        history.push('/catalog');
+        history.replace('/catalog');
       }, 2000);
     }
   }, [user.token, history]);

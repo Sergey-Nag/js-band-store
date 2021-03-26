@@ -7,8 +7,13 @@ import {
 
 const query = QueryApi.getInstance();
 
+const returnBooksIdArr = (products) => products.reduce((arr, { id, userCount }) => {
+  for (let i = 0; i < userCount; i += 1) arr.push(id);
+  return arr;
+}, []);
+
 const purchaseCart = (products) => async (dispatch) => {
-  const productsId = products.map(({ id }) => id);
+  const productsId = returnBooksIdArr(products);
 
   dispatch({
     type: PURCHASE_SENDING,
@@ -19,7 +24,6 @@ const purchaseCart = (products) => async (dispatch) => {
   const req = await query.purchase(productsId, token);
 
   if (!req.ok) {
-    console.log('error', req);
     dispatch({
       type: PURCHASE_ERROR,
       payload: req.data,
