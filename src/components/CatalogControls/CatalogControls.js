@@ -12,12 +12,14 @@ export default function CatalogControls() {
 
   const filterByText = useCallback(({ target }) => {
     const { value } = target;
+
     setFilterText(value);
     dispatch(filterByTitle(value));
   }, [setFilterText, dispatch]);
 
   const filterByPrice = useCallback(({ target }) => {
     const { value } = target;
+
     setFilterSelect(value);
     dispatch(filterBooksByPrice(value));
   }, [setFilterSelect, dispatch]);

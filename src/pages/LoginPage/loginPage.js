@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './login.scss';
 import { useSelector } from 'react-redux';
 
 import LoginCard from '../../components/Login';

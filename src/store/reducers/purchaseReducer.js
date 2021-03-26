@@ -8,7 +8,7 @@ import {
 const initialState = {
   isSending: false,
   isSuccess: false,
-  error: {},
+  error: null,
 };
 
 export default function userReducer(state = initialState, action) {

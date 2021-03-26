@@ -9,14 +9,14 @@ const query = QueryApi.getInstance();
 
 const purchaseCart = (products) => async (dispatch) => {
   const productsId = products.map(({ id }) => id);
-
+  console.log(productsId);
   dispatch({
     type: PURCHASE_SENDING,
   });
 
   const { token } = JSON.parse(localStorage.getItem('authUser'));
 
-  const req = await query.purchase(productsId, token);
+  const req = await query.purchase(productsId, '123');
 
   if (!req.ok) {
     console.log('error', req);
