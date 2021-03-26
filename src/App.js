@@ -30,6 +30,7 @@ export default function App() {
     console.log('no token');
     return (
       <>
+        {error.isError && <Modal error data={error} />}
         {modal.message && <Modal message={modal.message} />}
         <Router basename={process.env.PUBLIC_URL}>
           <Switch>

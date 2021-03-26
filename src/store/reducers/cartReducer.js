@@ -7,7 +7,10 @@ export default function userReducer(state = initialState, action) {
     case PUSH_PRODUCT_TO_CART:
       return [
         ...state,
-        action.payload,
+        {
+          ...action.payload,
+          key: state.length,
+        },
       ];
     case CLEAR_CART:
       return [];

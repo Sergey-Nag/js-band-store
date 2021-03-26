@@ -24,9 +24,9 @@ export default function Cart({ items }) {
             </thead>
             <tbody>
               {items.map(({
-                id, title, userCount, price, totalPrice,
+                key, title, userCount, price, totalPrice,
               }) => (
-                <tr key={id}>
+                <tr key={key}>
                   <td>{title}</td>
                   <td className="text-right">{userCount}</td>
                   <td className="text-right">{price}</td>
