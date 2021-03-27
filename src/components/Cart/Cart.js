@@ -12,7 +12,7 @@ export default function Cart({ items }) {
   return (
     <Wrapp>
       <div className="col">
-        <div className="card p-4">
+        <div className="card p-4 table-responsive">
           <table className="table">
             <thead>
               <tr>

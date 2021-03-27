@@ -39,7 +39,7 @@ export default function Modal({ data, error }) {
             </div>
             <div className="card-footer">
               <div className="row justify-content-end">
-                <div className="col-2">
+                <div className="col-md-3 col-xl-2">
                   <button
                     className="bttn primary btn-close"
                     type="button"

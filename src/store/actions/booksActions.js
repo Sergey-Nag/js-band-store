@@ -104,9 +104,11 @@ export const filterBooksByPrice = (value) => (dispatch, getState) => {
 };
 
 export const filterByTitle = (value) => (dispatch, getState) => {
+  const searchText = value.trim().toLowerCase();
   let payload;
+
   if (value) {
-    payload = (title) => title.toLowerCase().includes(value.trim().toLowerCase());
+    payload = (title) => title.toLowerCase().includes(searchText);
   } else {
     payload = () => true;
   }
