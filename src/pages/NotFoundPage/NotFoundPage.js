@@ -9,10 +9,15 @@ export default function NotFoundPage() {
 
   return (
     <Wrapp>
-      <div className="col pt-5">
-        <h1 className="text-center">404 Page not found</h1>
-        <div className="text-center">
-          <Link to="/">Return to main page</Link>
+      <div className="col text-center mt-5 pt-5">
+        <img
+          alt="page not found"
+          src="https://media.giphy.com/media/tvGOBZKNEX0ac/giphy-downsized-large.gif"
+          className="w-100 mb-3 rounded"
+        />
+        <h1>Sorry, page not found</h1>
+        <div>
+          <Link className="btn btn-primary mt-3" to="/">Return to main page</Link>
         </div>
       </div>
     </Wrapp>
