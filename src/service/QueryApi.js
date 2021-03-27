@@ -22,14 +22,15 @@ export default class QueryApi {
         body: JSON.stringify(data),
       });
 
-      console.log(request.url, request.status);
-
       response = {
         ok: request.ok,
         data: await request.json(),
       };
     } catch (error) {
-      console.log(error);
+      response = {
+        ok: false,
+        data: { message: 'Network error, please, try again' },
+      };
     }
 
     return response;

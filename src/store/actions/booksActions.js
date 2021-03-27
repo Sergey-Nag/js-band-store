@@ -23,17 +23,8 @@ export const loadBooks = () => async (dispatch) => {
 
   const req = await query.loadBooks(token);
 
-  if (!req?.ok) {
-    dispatch({
-      type: LOAD_BOOKS_ERROR,
-      payload: req?.data ?? { message: 'Network error' },
-    });
-
-    return;
-  }
-
   dispatch({
-    type: LOAD_BOOKS,
+    type: req.ok ? LOAD_BOOKS : LOAD_BOOKS_ERROR,
     payload: req.data,
   });
 };
@@ -47,17 +38,8 @@ export const loadBookById = (id) => async (dispatch) => {
 
   const req = await query.loadBookById(id, token);
 
-  if (!req.ok) {
-    dispatch({
-      type: LOAD_BOOKS_ERROR,
-      payload: req.data,
-    });
-
-    return;
-  }
-
   dispatch({
-    type: LOAD_BOOK_BY_ID,
+    type: req.ok ? LOAD_BOOK_BY_ID : LOAD_BOOKS_ERROR,
     payload: req.data,
   });
 };

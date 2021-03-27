@@ -23,17 +23,9 @@ const purchaseCart = (products) => async (dispatch) => {
 
   const req = await query.purchase(productsId, token);
 
-  if (!req?.ok) {
-    dispatch({
-      type: PURCHASE_ERROR,
-      payload: req?.data ?? { message: 'Network error' },
-    });
-
-    return;
-  }
-
   dispatch({
-    type: PURCHASE_SUCCESS,
+    type: req.ok ? PURCHASE_SUCCESS : PURCHASE_ERROR,
+    payload: req?.data ?? { message: 'Network error' },
   });
 };
 

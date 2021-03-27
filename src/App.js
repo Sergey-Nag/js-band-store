@@ -27,7 +27,6 @@ export default function App() {
   }, [user.token, dispatch]);
 
   if (user.token || localStorage.getItem('authUser')) {
-    console.log('token');
     return (
       <>
         {error.isError && <Modal error data={error} />}
@@ -49,7 +48,6 @@ export default function App() {
     );
   }
 
-  console.log('no token');
   return (
     <>
       {error.isError && <Modal error data={error} />}

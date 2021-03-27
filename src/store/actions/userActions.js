@@ -15,21 +15,12 @@ export const signin = (username) => async (dispatch) => {
 
   const req = await query.signin(username);
 
-  if (!req.ok) {
-    dispatch({
-      type: AUTH_USER_ERROR,
-      payload: req.data,
-    });
-
-    return;
-  }
-
   dispatch({
-    type: AUTH_USER,
+    type: req.ok ? AUTH_USER : AUTH_USER_ERROR,
     payload: req.data,
   });
 
-  localStorage.setItem('authUser', JSON.stringify(req.data));
+  if (req.ok) localStorage.setItem('authUser', JSON.stringify(req.data));
 };
 
 export const signout = () => {
