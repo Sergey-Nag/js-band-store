@@ -12,7 +12,7 @@ export default function Spinner({ as }) {
     );
   }
   return (
-    <div className="spinner-border" role="status">
+    <div className="spinner-border d-block mx-auto mt-5" role="status">
       <span className="sr-only">Loading...</span>
     </div>
   );
