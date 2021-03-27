@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Catalog from '../../components/Catalog/Catalog';
 import CatalogControls from '../../components/CatalogControls';
+import CatalogFilterNotFound from './CatalogFilterNotFound';
 import Header from '../../components/Header';
 import Spinner from '../../components/Spinner/Spinner';
 import { loadBooks } from '../../store/actions/booksActions';
@@ -29,6 +30,7 @@ export default function CatalogPage() {
       <CatalogControls />
       {books.isCatalogLoading && <Spinner size="lg" center />}
       {!books.isCatalogLoading && <Catalog items={books.filteredCatalog ?? books.catalog} />}
+      {books.filteredCatalog && books.filteredCatalog.length === 0 && <CatalogFilterNotFound />}
     </>
   );
 }
