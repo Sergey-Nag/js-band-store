@@ -37,6 +37,7 @@ export default function ProductSingle({ product }) {
             className="btn btn-success"
             type="button"
             onClick={addProductToCart}
+            disabled={userCount < 1 || userCount > product.count}
           >
             Add to cart
           </button>

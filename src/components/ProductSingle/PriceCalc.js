@@ -7,9 +7,12 @@ export default function PriceCalc({
 
   const countChange = useCallback(({ target }) => {
     const value = +target.value;
-    setTotalPrice(multiplyPrice(value));
-    setUserCount(value);
-  }, [multiplyPrice, setUserCount, setTotalPrice]);
+
+    if (value <= count || value > 0) {
+      setTotalPrice(multiplyPrice(value));
+      setUserCount(value);
+    }
+  }, [count, multiplyPrice, setUserCount, setTotalPrice]);
 
   return (
     <div className="card p-4">
@@ -26,7 +29,7 @@ export default function PriceCalc({
           <p>Count</p>
         </div>
         <div className="col-md-4 col-xl-3 col-5 text-right">
-          <div className="input-group" size="sm" style={{ marginTop: '-3px' }}>
+          <div className="input-group" style={{ marginTop: '-3px' }}>
             <input
               className="form-control form-control-sm"
               type="number"
