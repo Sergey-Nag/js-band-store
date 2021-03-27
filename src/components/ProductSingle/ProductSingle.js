@@ -23,7 +23,7 @@ export default function ProductSingle({ product }) {
       <div className="col-md-8">
         <ProductDescription product={product} />
       </div>
-      <div className="col-md-4">
+      <div className="col-md-4 mb-5">
         <PriceCalc
           price={product.price}
           totalPrice={totalPrice}

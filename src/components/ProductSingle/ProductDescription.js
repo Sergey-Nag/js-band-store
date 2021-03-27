@@ -11,14 +11,14 @@ export default function ProductDescription({ product }) {
   } = product;
 
   return (
-    <div className="card product-desc">
-      <div className="row">
+    <div className="card product-desc mb-4">
+      <div className="row flex-column-reverse  flex-sm-row">
         <div className="col">
           <img src={cover} className="product-desc-img w-100" alt="a" />
           <p className="p-4">{description}</p>
         </div>
         <div className="col">
-          <div className="pt-4 pr-4">
+          <div className="pt-4 pr-4 pl-4 pl-sm-0">
             <h3>{title}</h3>
             <span className="text-muted h6">{author}</span>
             <p className="tags">

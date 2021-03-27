@@ -14,18 +14,18 @@ export default function PriceCalc({
   return (
     <div className="card p-4">
       <div className="row">
-        <div className="col-md-8">
+        <div className="col">
           <p>Price, $</p>
         </div>
-        <div className="col text-right">
+        <div className="col-md-4 col-xl-3 col-5 text-right">
           <p>{price}</p>
         </div>
       </div>
       <div className="row">
-        <div className="col-md-8">
+        <div className="col">
           <p>Count</p>
         </div>
-        <div className="col text-right">
+        <div className="col-md-4 col-xl-3 col-5 text-right">
           <div className="input-group" size="sm" style={{ marginTop: '-3px' }}>
             <input
               className="form-control form-control-sm"
@@ -39,10 +39,10 @@ export default function PriceCalc({
         </div>
       </div>
       <div className="row font-weight-bold">
-        <div className="col-md-8">
+        <div className="col">
           <p>Total Price, $</p>
         </div>
-        <div className="col text-right">
+        <div className="col-md-4 col-xl-3 col-5 text-right">
           <p>{totalPrice}</p>
         </div>
       </div>
