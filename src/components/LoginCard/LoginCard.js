@@ -24,7 +24,7 @@ export default function LoginCard() {
   };
 
   return (
-    <div className="card login-card">
+    <div data-testid="Login" className="card login-card">
       <div className="card-header">Login</div>
       <img
         className="card-img-top px-5 pt-4"

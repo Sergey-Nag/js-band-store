@@ -31,6 +31,7 @@ export default function PriceCalc({
         <div className="col-md-4 col-xl-3 col-5 text-right">
           <div className="input-group" style={{ marginTop: '-3px' }}>
             <input
+              data-testid="price-counter"
               className="form-control form-control-sm"
               type="number"
               min="1"
@@ -46,7 +47,7 @@ export default function PriceCalc({
           <p>Total Price, $</p>
         </div>
         <div className="col-md-4 col-xl-3 col-5 text-right">
-          <p>{totalPrice}</p>
+          <p data-testid="total-price">{totalPrice}</p>
         </div>
       </div>
     </div>

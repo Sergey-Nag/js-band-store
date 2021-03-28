@@ -19,6 +19,7 @@ export default function CartPurchase({ isAvialable }) {
         <div className="row mb-4 justify-content-end">
           <div className="col-md-2 col-sm-4">
             <button
+              data-testid="purchase-button"
               className="bttn primary solid"
               type="button"
               onClick={sendPurchase}

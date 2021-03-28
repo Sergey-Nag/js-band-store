@@ -34,6 +34,7 @@ export default function ProductSingle({ product }) {
         />
         <div className="pt-4 text-right">
           <button
+            data-testid="push-to-cart-button"
             className="btn btn-success"
             type="button"
             onClick={addProductToCart}

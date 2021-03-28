@@ -28,19 +28,20 @@ export default function Modal({ data, error }) {
 
   return (
     <div className="modal-card-wrapp container-fluid" ref={modalWrapp}>
-      <div className="row modal-click justify-content-center align-items-center h-100">
+      <div data-testid="modal-wrapper" className="row modal-click justify-content-center align-items-center h-100">
         <div className="col-xl-7 col-md-9">
-          <div className={`card modal-card ${error ? 'modal-card-error' : ''}`}>
+          <div data-testid="modal-error" className={`card modal-card ${error ? 'modal-card-error' : ''}`}>
             <div className="card-header pt-3">
-              <h5>{title}</h5>
+              <h5 data-testid="modal-title">{title}</h5>
             </div>
-            <div className="card-body">
+            <div className="card-body" data-testid="modal-message">
               {message}
             </div>
             <div className="card-footer">
               <div className="row justify-content-end">
                 <div className="col-md-3 col-xl-2">
                   <button
+                    data-testid="close-modal-button"
                     className="bttn primary btn-close"
                     type="button"
                     onClick={closeModal}
