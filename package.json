@@ -43,14 +43,14 @@
   "husky": {
     "hooks": {
       "pre-commit": [
-        "npm run test"
+        "lint-staged"
       ]
     }
   },
   "lint-staged": {
     "src/**/*.js": [
-      "npm test",
-      "npm eslint"
+      "npm run eslint",
+      "npm run test"
     ]
   },
   "devDependencies": {
