@@ -34,6 +34,7 @@ export default function CatalogControls() {
             </div>
           </div>
           <input
+            data-testid="search-book"
             className="form-control"
             placeholder="Find a book..."
             value={filterText}
@@ -49,6 +50,7 @@ export default function CatalogControls() {
             </div>
           </div>
           <select
+            data-testid="filter-price"
             className="custom-select"
             value={filterSelect}
             onChange={filterByPrice}

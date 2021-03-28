@@ -20,9 +20,10 @@ export default function Header() {
       <div className="bg-dark text-light">
         <Wrapp className="py-2 justify-content-end">
           <div className="col-5 col-xs-8 col-md-2 text-right pr-0">
-            <span className="d-inline-block" style={{ paddingTop: '.2rem' }}>
+            <span data-testid="username" className="d-inline-block" style={{ paddingTop: '.2rem' }}>
               {user.username}
               <img
+                data-testid="avatar"
                 src={user.avatar}
                 style={{ width: 26, margin: '-3px 0 0 7px' }}
                 className="rounded"
@@ -32,6 +33,7 @@ export default function Header() {
           </div>
           <div className="col-5 col-xs-4 col-md-2">
             <button
+              data-testid="sign-out-button"
               className="bttn secondary solid btn-sm"
               type="button"
               onClick={signOut}
@@ -50,7 +52,7 @@ export default function Header() {
           </div>
           <div className="col-5 col-md-2">
             <div className="d-flex flex-column justify-content-center h-100">
-              <Link to="/cart" className="bttn light">
+              <Link data-testid="cart-button" to="/cart" className="bttn light">
                 <img className="bttn-img" src={cartIcon} alt="cart" />
                 Cart
                 {' '}

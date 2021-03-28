@@ -26,7 +26,7 @@ export default function Cart({ items }) {
               {items.map(({
                 key, title, userCount, price, totalPrice,
               }) => (
-                <tr key={key}>
+                <tr key={key} data-testid="cart-item">
                   <td>{title}</td>
                   <td className="text-right">{userCount}</td>
                   <td className="text-right">{price}</td>

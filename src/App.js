@@ -41,7 +41,9 @@ export default function App() {
             <Route exact path="/cart" component={CartPage} />
             <Route path="/catalog/:id" component={ProductPage} />
             <Route exact path="/not-found" component={NotFoundPage} />
-            <Route path="*" component={NotFoundPage} />
+            <Route path="*">
+              <Redirect to="/no-found" />
+            </Route>
           </Switch>
         </Router>
       </>
