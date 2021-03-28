@@ -15,6 +15,7 @@ export default function userReducer(state = initialState, action) {
       return {
         ...action.payload,
       };
+
     case CLOSE_MODAL:
       return {
         ...initialState,
