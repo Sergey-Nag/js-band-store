@@ -5,6 +5,7 @@ export default function Spinner({ as }) {
   if (as === 'span') {
     return (
       <span
+        data-testid="spinner-span"
         className="spinner-border spinner-border-sm"
         role="status"
         aria-hidden="true"
@@ -12,7 +13,11 @@ export default function Spinner({ as }) {
     );
   }
   return (
-    <div className="spinner-border d-block mx-auto mt-5" role="status">
+    <div
+      data-testid="spinner-div"
+      className="spinner-border d-block mx-auto mt-5"
+      role="status"
+    >
       <span className="sr-only">Loading...</span>
     </div>
   );

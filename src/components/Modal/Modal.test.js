@@ -2,8 +2,6 @@ import React from 'react';
 import { cleanup, fireEvent } from '@testing-library/react';
 import Modal from './Modal';
 import renderWithRedux from '../../tests-helpers/renderWithRedux';
-import store from '../../store';
-import { OPEN_MODAL } from '../../store/types/modalTypes';
 
 const DATA = {
   title: 'Test',

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import LoginCard from '../../components/Login';
+import LoginCard from '../../components/LoginCard';
 
 export default function LoginPage({ history }) {
   const user = useSelector((state) => state.user);
