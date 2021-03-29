@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/js-band-store/static/css/main.3c5b76b8.chunk.css",
+    "main.js": "/js-band-store/static/js/main.c0c42e3a.chunk.js",
+    "main.js.map": "/js-band-store/static/js/main.c0c42e3a.chunk.js.map",
+    "runtime-main.js": "/js-band-store/static/js/runtime-main.452aa814.js",
+    "runtime-main.js.map": "/js-band-store/static/js/runtime-main.452aa814.js.map",
+    "static/js/2.16e33cca.chunk.js": "/js-band-store/static/js/2.16e33cca.chunk.js",
+    "static/js/2.16e33cca.chunk.js.map": "/js-band-store/static/js/2.16e33cca.chunk.js.map",
+    "static/js/3.81903bbf.chunk.js": "/js-band-store/static/js/3.81903bbf.chunk.js",
+    "static/js/3.81903bbf.chunk.js.map": "/js-band-store/static/js/3.81903bbf.chunk.js.map",
+    "index.html": "/js-band-store/index.html",
+    "static/css/main.3c5b76b8.chunk.css.map": "/js-band-store/static/css/main.3c5b76b8.chunk.css.map",
+    "static/js/2.16e33cca.chunk.js.LICENSE.txt": "/js-band-store/static/js/2.16e33cca.chunk.js.LICENSE.txt",
+    "static/media/filter.31993a05.svg": "/js-band-store/static/media/filter.31993a05.svg",
+    "static/media/search.4baf6059.svg": "/js-band-store/static/media/search.4baf6059.svg",
+    "static/media/searchNotFound.ae3022be.svg": "/js-band-store/static/media/searchNotFound.ae3022be.svg",
+    "static/media/shopping-cart.8233c34c.svg": "/js-band-store/static/media/shopping-cart.8233c34c.svg",
+    "static/media/unknown-guy.4b684e29.svg": "/js-band-store/static/media/unknown-guy.4b684e29.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.452aa814.js",
+    "static/js/2.16e33cca.chunk.js",
+    "static/css/main.3c5b76b8.chunk.css",
+    "static/js/main.c0c42e3a.chunk.js"
+  ]
+}
