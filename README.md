@@ -14,11 +14,11 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode.
 
 ### `npm test:coverage`
 
-Launches tests and show total coverage of code. Generate report to /coverage folder.\
+Launches tests and show total coverage of code. Generate report to /coverage folder.
 
 ### `npm run build`
 
@@ -26,15 +26,15 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!\
+Your app is ready to be deployed!
 
 ### `npm run eslint`
 
-Launches the code linting with airbnb config.\
+Launches the code linting with airbnb config.
 
 ### `npm run eslint:fix`
 
-Launches fixing of code with airbnb config.\
+Launches fixing of code with airbnb config.
 
 ### `npm run eject`
 
