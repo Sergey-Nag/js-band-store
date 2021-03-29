@@ -65,7 +65,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Technologies
 - React (CRA)
-- Redux (state manager)
+- Redux (state management)
 - SASS (styling)
 - Bootstrap classes (styling)
 - Jest (testing)
