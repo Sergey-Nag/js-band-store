@@ -1,5 +1,16 @@
 # JS Band Store
 
+JS-Band Store - this is final task from ciklum internship.\
+In this shop you can search books about JavaScript, can filter them, adding to cart and do the purchase.\
+[Open the app](https://sergey-nag.github.io/js-band-store/)
+
+## Usage
+- Unautharized user goes to Login page. Typing his username (if username is not valid see message below input form). After successfull authorizations User see welcome message and redirected to the catalog page.
+- On the Catalog page user see list of books and can search them by title and filter by price. Cliked by "View" button user goes to page with detailed inforamtion about current book.
+- On the Book's info page User can see all information about chosen book and can add to cart avialable count of them and see total price. After add, User can go to Cart or return to Catalog for search another books.
+- On the Cart page User can see table with chosen books and total price< after that can do the purchase. After succsessfull purchase opens the modal window with same table with ordered books. After close this modal the cart will be empty.
+- When User clicks to the Sign Out button he will be log out and redirected to login page back.
+
 ## Available Scripts
 
 In the project directory, you can run:
