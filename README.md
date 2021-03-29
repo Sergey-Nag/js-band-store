@@ -11,6 +11,12 @@ In this shop you can search books about JavaScript, can filter them, adding to c
 - On the Cart page User can see table with chosen books and total price< after that can do the purchase. After succsessfull purchase opens the modal window with same table with ordered books. After close this modal the cart will be empty.
 - When User clicks to the Sign Out button he will be log out and redirected to login page back.
 
+## Install and run project
+- Clone repository `git clone https://github.com/Sergey-Nag/js-band-store.git`
+- Install all dependencies `npm install`
+- Run app for development `npm start`
+- Build app for production `npm run build`
+
 ## Available Scripts
 
 In the project directory, you can run:
