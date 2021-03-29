@@ -71,3 +71,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 - Jest (testing)
 - ESlint (code linting by airbnb)
 - Husky (pre-commit hooks)
+
+NodeJS v12.13.1
